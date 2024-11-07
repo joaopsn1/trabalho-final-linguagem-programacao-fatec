@@ -7,6 +7,7 @@ string autor;
 int isbn;
 string genero;
 int quantidade;
+//testando isso aqui
 
 int menu(){
    cout <<"[ 1 ] Cadastros de livros \n";
