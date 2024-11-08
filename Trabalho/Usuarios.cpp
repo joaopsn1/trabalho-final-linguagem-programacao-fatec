@@ -23,3 +23,5 @@ public:
         cout << "Contato: " << contato << endl;
     }
 };
+
+//cria lista de usuarios
