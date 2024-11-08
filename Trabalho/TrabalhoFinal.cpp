@@ -7,9 +7,7 @@
 using namespace std;
 
 int main() {
-    cout << ".:: SISTEMA BIBLIOTECA ::.";
-
-    while (true) {
+    while (true) {//loop infinito para ficar executando
         opcao = menu();
 
         switch (opcao) {
