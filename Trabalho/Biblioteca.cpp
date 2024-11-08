@@ -12,9 +12,9 @@ list<Livro> livros;
 //Cadastrar Usuários na biblioteca
 void cadastrarUsuario()
 {
-    cout << "Nome: ";
+    cout << "\nNome: ";
     cin >> nome;
-    cout << "Endereço: ";
+    cout << "Endereco: ";
     cin >> endereco;
     cout << "Contato: ";
     cin >> contato;
