@@ -71,3 +71,26 @@ void exibirLivrosCadastrados()
         cout << "------------------------\n";
     }
 }
+
+std::vector<Livro> biblioteca;
+
+
+// // Função para pesquisar livros por autor
+// void pesquisarLivrosPorAutor(const std::string &autorProcurado) {
+//     bool encontrado = false;
+
+//     std::cout << "Pesquisando livros do autor: " << autorProcurado << std::endl;
+
+//     for (const auto &livro : biblioteca) {
+//         if (livro.autor == autorProcurado) {
+//             livro.exibirInformacoes();
+//             encontrado = true;
+//             std::cout << "---------------------" << std::endl;
+//         }
+//     }
+
+//     if (!encontrado) {
+//         std::cout << "Nenhum livro encontrado para o autor: " << autorProcurado << std::endl;
+//     }
+// }
+

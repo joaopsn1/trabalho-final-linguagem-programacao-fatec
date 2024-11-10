@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <vector>
 #include "Biblioteca.cpp"
 #include "menu.cpp"
 
@@ -35,13 +36,29 @@ int main() {
                     }else if (opcao_usuario == 2) {
                         break; // Volta ao menu principal
                     }else {
-                        cout << "Opcao invalida!" << endl;
+                        cout << "Opcao invalida!" <<endl ;
                     }
 
                 }
                 
                 break;
+            // case 4:
+            //     {
+            //     // Pesquisa de livros por autor
+            //     std::string autorProcurado;
+            //     std::cout << "Digite o nome do autor para buscar: ";
+            //     std::cin.ignore();  // Limpa qualquer caractere restante do buffer
+            //     std::getline(std::cin, autorProcurado);  // Lê o nome completo do autor
 
+            //     pesquisarLivrosPorAutor(autorProcurado);
+            //     break;
+            //     }
+
+            case 5:
+
+                cout << "Relatorio";
+
+                break;    
 
             case 6: // Finalizar o aplicativo
                 cout << "Encerrando o aplicativo..." << endl;

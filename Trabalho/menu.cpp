@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-int opcao;
-int opcao_livro;
-int opcao_usuario;
+int opcao = 0;
+int opcao_livro = 0;
+int opcao_usuario =  0;
 
 using namespace std;
 
