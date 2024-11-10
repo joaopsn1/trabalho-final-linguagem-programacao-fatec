@@ -20,6 +20,8 @@ int main() {
                     } else if(opcao_livro == 2){
                         exibirLivrosCadastrados();//exibir os livros no meu 
                     } else if (opcao_livro == 3) {
+                        removerLivrosPorISBN(); //remover livros pelo código   
+                    } else if (opcao_livro == 4) {
                         break; // Volta ao menu principal
                     } else {
                         cout << "Opcao invalida!" << endl;

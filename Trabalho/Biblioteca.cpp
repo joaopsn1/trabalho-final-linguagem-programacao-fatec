@@ -3,15 +3,18 @@
 #include <list>
 #include "Usuarios.cpp"
 #include "Livro.cpp"
+#include <algorithm>
 
 using namespace std;
 
 list<Usuarios> usuarios;
 list<Livro> livros;
 
-//Cadastrar Usuários na biblioteca
+// Cadastrar Usuários na biblioteca
 void cadastrarUsuario()
 {
+    string nome, endereco, contato;
+
     cout << "\nNome: ";
     cin >> nome;
     cout << "Endereco: ";
@@ -23,7 +26,7 @@ void cadastrarUsuario()
     cout << "Usuario cadastrado com sucesso!" << endl;
 }
 
-//Exibir lista de usuários cadastrados
+// Exibir lista de usuários cadastrados
 void exibirUsuariosCadastrados()
 {
     if (usuarios.empty())
@@ -40,6 +43,9 @@ void exibirUsuariosCadastrados()
 
 void cadastrarLivro()
 {
+    string titulo, autor, genero;
+    int isbn, quantidade;
+
     cout << "Titulo: ";
     cin >> titulo;
     cout << "Autor: ";
@@ -55,7 +61,7 @@ void cadastrarLivro()
     cout << "Livro cadastrado com sucesso!" << endl;
 }
 
-//Exibir lista de usuários cadastrados
+// Exibir lista de usuários cadastrados
 void exibirLivrosCadastrados()
 {
     cout << "\n.:: LIVROS CADASTRADOS ::.\n";
@@ -69,5 +75,26 @@ void exibirLivrosCadastrados()
     {
         livro.exibirInformacoes();
         cout << "------------------------\n";
+    }
+}
+
+void removerLivrosPorISBN()
+{
+    Livro livro;
+    int isbnParaRemover;
+    cout << "\nDigite o ISBN do livro para remove-lo: ";
+    cin >> isbnParaRemover;
+
+    int afterSize = livros.size();
+
+    livros.remove_if([isbnParaRemover](const Livro& livro){ 
+        return livro.getISBN() == isbnParaRemover; 
+    });
+
+    if (livros.size() < afterSize)
+    {
+        cout << "Livro removido com sucesso!\n";
+    } else {
+        cout << "Livro não cadastrado no sistema!\n";
     }
 }

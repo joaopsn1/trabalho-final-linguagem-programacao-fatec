@@ -3,20 +3,26 @@
 
 using namespace std;
 
-string titulo;
-string autor;
-int isbn;
-string genero;
-int quantidade;
-
 class Livro
 {
-public:
-    std::string titulo;
-    std::string autor;
+private:
+    string titulo;
+    string autor;
     int isbn;
-    std::string genero;
+    string genero;
     int quantidade;
+
+public:
+    Livro() {
+
+    }
+
+public:
+    //std::string titulo;
+    //std::string autor;
+    //int isbn;
+    //std::string genero;
+    //int quantidade;
 
     Livro(const std::string &titulo, const std::string &autor, int isbn, std::string &genero, int quantidade) : titulo(titulo), autor(autor), isbn(isbn), genero(genero), quantidade(quantidade) {}
 
@@ -28,5 +34,9 @@ public:
         cout << "ISBN: " << isbn << endl;
         cout << "Genero: " << genero << endl;
         cout << "Quantidade: " << quantidade << endl;
+    }
+
+    int getISBN() const {
+        return isbn;
     }
 };

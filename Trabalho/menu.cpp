@@ -26,7 +26,8 @@ int menu_cadastro_livro() {
    cout << "\n.:: MENU DA BIBLIOTECA ::.\n";
    cout <<"[ 1 ] Adicionar Livro \n";
    cout <<"[ 2 ] Exibir Livros \n";
-   cout <<"[ 3 ] Voltar ao menu principal \n";
+   cout <<"[ 3 ] Remover Livros \n";
+   cout <<"[ 4 ] Voltar ao menu principal \n";
    cout << "\nOpcao: ";
    cin >> opcao_livro;
    return opcao_livro;
