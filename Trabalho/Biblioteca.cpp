@@ -98,7 +98,6 @@ void removerLivrosPorISBN()
     {
         cout << "Livro não cadastrado no sistema!\n";
     }
-<<<<<<< Updated upstream
 }
 
 //std::vector<Livro> biblioteca;
@@ -132,40 +131,3 @@ void pesquisarLivrosPorAutor() {
     }
 }
 
-=======
-
-    // std::vector<Livro> biblioteca;
-
-    // Função para pesquisar livros por autor
-    void pesquisarLivrosPorAutor()
-    {
-        Livro livro;
-        bool encontrado = false;
-        std::string autorProcurado;
-
-        std::cout << "Digite o nome do autor para buscar: ";
-        std::cin.ignore(); // Limpa qualquer caractere restante do buffer
-        std::getline(std::cin, autorProcurado);
-
-        std::cout << "Pesquisando livros do autor: " << autorProcurado << std::endl;
-
-        for (const auto &livro : livros)
-        {
-            if (livro.getAutor() == autorProcurado)
-            {
-                cout << "\n";
-                livro.exibirInformacoes();
-                encontrado = true;
-                std::cout << "---------------------" << std::endl;
-                std::cin.get();
-            }
-        }
-
-        if (!encontrado)
-        {
-            std::cout << "Nenhum livro encontrado para o autor: " << autorProcurado << std::endl;
-            std::cin.get();
-        }
-    }
-};
->>>>>>> Stashed changes
