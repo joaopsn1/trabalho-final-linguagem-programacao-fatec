@@ -3,8 +3,7 @@
 
 using namespace std;
 
-class Livro
-{
+class Livro {
 private:
     string titulo;
     string autor;
@@ -20,9 +19,7 @@ public:
 public:
     Livro(const std::string &titulo, const std::string &autor, int isbn, std::string &genero, int quantidade) : titulo(titulo), autor(autor), isbn(isbn), genero(genero), quantidade(quantidade) {}
 
-    void exibirInformacoes() const
-
-    {
+    void exibirInformacoes() const {
         cout << "Titulo: " << titulo << endl;
         cout << "Autor: " << autor << endl;
         cout << "ISBN: " << isbn << endl;
@@ -42,7 +39,7 @@ public:
         return titulo;
     }
 
-    int getQuantidade() const {
+    int& getQuantidade() {
         return quantidade;
     }
 

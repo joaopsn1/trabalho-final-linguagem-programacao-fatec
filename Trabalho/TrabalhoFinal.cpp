@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-    int opcao, opcao_livro, opcao_usuario;
+    int opcao, opcaoLivro, opcaoUsuario, opcaoBusca, opcaoEmprestimoDevolucao;
     std::string autorProcurado;
 
     while (true) { // loop infinito para ficar executando
@@ -17,15 +17,17 @@ int main() {
         switch (opcao) {
             case 1: // Menu de cadastro de livros
                 while (true) {
-                    opcao_livro = menu_cadastro_livro();
+                    opcaoLivro = menuCadastroLivro();
 
-                    if (opcao_livro == 1) {
+                    if (opcaoLivro == 1) {
                         cadastrarLivro(); // Adiciona livro à lista
-                    } else if(opcao_livro == 2){
+                    } else if(opcaoLivro == 2){
                         exibirLivrosCadastrados(); // exibir os livros no meu 
-                    } else if (opcao_livro == 3) {
-                        removerLivrosPorISBN(); //remover livros pelo código   
-                    } else if (opcao_livro == 4) {
+                    } else if (opcaoLivro == 3) {
+                        removerLivrosPorISBN(); // remover livros pelo código   
+                    } else if (opcaoLivro == 4) {
+                        editarQuantidade(); // editar quantidade de livros  
+                    } else if (opcaoLivro == 5) {
                         break; // Volta ao menu principal
                     } else {
                         cout << "Opcao invalida!" << endl;
@@ -34,20 +36,48 @@ int main() {
                 break;
             case 2:
                 while (true) {
-                    opcao_usuario = menu_cadastro_usuario();
+                    opcaoUsuario = menuCadastroUsuario();
 
-                    if(opcao_usuario == 1){
+                    if(opcaoUsuario == 1) {
                         cadastrarUsuario(); // adicionar usuario
-                    }else if (opcao_usuario == 2) {
+                    } else if (opcaoUsuario == 2) {
                         break; // Volta ao menu principal
-                    }else {
-                        cout << "Opcao invalida!" <<endl ;
+                    } else {
+                        cout << "Opcao invalida!" << endl;
+                    }
+                }
+                break;
+            case 3:
+                while (true) {
+                    opcaoEmprestimoDevolucao = menuEmprestimoDevolucao();
+
+                    if(opcaoEmprestimoDevolucao == 1) {
+                        emprestimoDeLivros(); // emprestar livros
+                    } else if (opcaoEmprestimoDevolucao == 2) {
+                        // devolucaoLivros();
+                    } else if (opcaoEmprestimoDevolucao == 3) {
+                        break; // volta ao menu principal
+                    } else {
+                        cout << "Opcao invalida!" << endl;
                     }
                 }
                 break;
             case 4:
-                // Pesquisa de livros por autor
-                pesquisarLivrosPorAutor();
+                while (true) {
+                    opcaoBusca = menuFiltragem();
+
+                    if (opcaoBusca == 1) {
+                        pesquisarLivrosPorAutor(); // Pesquisa de livros por autor
+                    } else if (opcaoBusca == 2) {
+                        pesquisarLivrosPorTitulo(); // Pesquisa de livros por titulo
+                    } else if (opcaoBusca == 3) {
+                        pesquisarLivrosPorGenero(); // Pesquisa de livros por genero
+                    } else if (opcaoBusca == 4) {
+                        break; // volta ao menu principal
+                    } else {
+                        cout << "Opcao invalida!" <<endl ;
+                    }
+                }
                 break;
             case 5:
                 cout << "Relatorio";
