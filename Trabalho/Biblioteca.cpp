@@ -130,4 +130,3 @@ void pesquisarLivrosPorAutor() {
         std::cin.get();
     }
 }
-
