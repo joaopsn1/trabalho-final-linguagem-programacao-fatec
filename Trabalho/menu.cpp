@@ -10,7 +10,7 @@ using namespace std;
 int menu() {
    system("cls");//limpa o cmd toda vez que volta para esse menu
    cout << ".:: SISTEMA BIBLIOTECA ::.\n";
-   cout <<"[ 1 ] Cadastros de livros \n";
+   cout <<"[ 1 ] Cadastro de livros \n";
    cout <<"[ 2 ] Cadastro de usuarios \n";
    cout <<"[ 3 ] Emprestimo e devolucao \n";
    cout <<"[ 4 ] Busca e filtragem \n";
