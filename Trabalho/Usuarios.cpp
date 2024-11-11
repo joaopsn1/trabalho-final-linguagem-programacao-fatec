@@ -3,24 +3,33 @@
 
 using namespace std;
 
-string nome;
-string endereco;
-string contato;
 
-class Usuarios
-{
+
+class Usuarios {
+private:
+    string nome;
+    string endereco;
+    string contato;
+
 public:
-    std::string nome;
-    std::string endereco;
-    std::string contato;
-
     Usuarios(const std::string &nome, const std::string &endereco, std::string &contato) : nome(nome), endereco(endereco), contato(contato) {}
 
-    void exibirInformacoes() const
-    {
+    void exibirInformacoes() const {
         cout << "Nome: " << nome << endl;
         cout << "Endereço: " << endereco << endl;
         cout << "Contato: " << contato << endl;
+    }
+
+    string getNome() const {
+        return nome;
+    }
+
+    string getEndereco() const {
+        return endereco;
+    }
+
+    string getContato() const {
+        return contato;
     }
 };
 
