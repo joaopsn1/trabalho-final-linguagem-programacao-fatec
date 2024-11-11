@@ -3,6 +3,7 @@
 #include <list>
 #include "Usuarios.cpp"
 #include "Livro.cpp"
+#include <algorithm>
 
 using namespace std;
 
@@ -40,14 +41,19 @@ void exibirUsuariosCadastrados()
 
 void cadastrarLivro()
 {
+    string titulo, autor, genero;
+    int isbn, quantidade;
+
     cout << "Titulo: ";
-    cin >> titulo;
+    std::cin.ignore();
+    std::getline(std::cin, titulo);
     cout << "Autor: ";
-    cin >> autor;
+    std::getline(std::cin, autor);
     cout << "ISBN: ";
     cin >> isbn;
     cout << "Genero: ";
-    cin >> genero;
+    std::cin.ignore();
+    std::getline(std::cin, genero);
     cout << "Quantidade: ";
     cin >> quantidade;
 
@@ -72,25 +78,55 @@ void exibirLivrosCadastrados()
     }
 }
 
-std::vector<Livro> biblioteca;
+void removerLivrosPorISBN()
+{
+    Livro livro;
+    int isbnParaRemover;
+    cout << "\nDigite o ISBN do livro para remove-lo: ";
+    cin >> isbnParaRemover;
+
+    int afterSize = livros.size();
+
+    livros.remove_if([isbnParaRemover](const Livro& livro){ 
+        return livro.getISBN() == isbnParaRemover; 
+    });
+
+    if (livros.size() < afterSize)
+    {
+        cout << "Livro removido com sucesso!\n";
+    } else {
+        cout << "Livro não cadastrado no sistema!\n";
+    }
+}
+
+//std::vector<Livro> biblioteca;
 
 
-// // Função para pesquisar livros por autor
-// void pesquisarLivrosPorAutor(const std::string &autorProcurado) {
-//     bool encontrado = false;
+// Função para pesquisar livros por autor
+void pesquisarLivrosPorAutor() {
+    Livro livro;
+    bool encontrado = false;
+    std::string autorProcurado;
 
-//     std::cout << "Pesquisando livros do autor: " << autorProcurado << std::endl;
+    std::cout << "Digite o nome do autor para buscar: ";
+    std::cin.ignore();  // Limpa qualquer caractere restante do buffer
+    std::getline(std::cin, autorProcurado);
 
-//     for (const auto &livro : biblioteca) {
-//         if (livro.autor == autorProcurado) {
-//             livro.exibirInformacoes();
-//             encontrado = true;
-//             std::cout << "---------------------" << std::endl;
-//         }
-//     }
+    std::cout << "Pesquisando livros do autor: " << autorProcurado << std::endl;
 
-//     if (!encontrado) {
-//         std::cout << "Nenhum livro encontrado para o autor: " << autorProcurado << std::endl;
-//     }
-// }
+    for (const auto &livro : livros) {
+        if (livro.getAutor() == autorProcurado) {
+            cout << "\n";
+            livro.exibirInformacoes();
+            encontrado = true;
+            std::cout << "---------------------" << std::endl;
+            std::cin.get();
+        }
+    } 
+
+    if (!encontrado) {
+        std::cout << "Nenhum livro encontrado para o autor: " << autorProcurado << std::endl;
+        std::cin.get();
+    }
+}
 

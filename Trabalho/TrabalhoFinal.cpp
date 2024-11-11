@@ -8,7 +8,10 @@
 using namespace std;
 
 int main() {
-    while (true) {//loop infinito para ficar executando
+    int opcao, opcao_livro, opcao_usuario;
+    std::string autorProcurado;
+
+    while (true) { // loop infinito para ficar executando
         opcao = menu();
 
         switch (opcao) {
@@ -19,8 +22,10 @@ int main() {
                     if (opcao_livro == 1) {
                         cadastrarLivro(); // Adiciona livro à lista
                     } else if(opcao_livro == 2){
-                        exibirLivrosCadastrados();//exibir os livros no meu 
+                        exibirLivrosCadastrados(); // exibir os livros no meu 
                     } else if (opcao_livro == 3) {
+                        removerLivrosPorISBN(); //remover livros pelo código   
+                    } else if (opcao_livro == 4) {
                         break; // Volta ao menu principal
                     } else {
                         cout << "Opcao invalida!" << endl;
@@ -28,38 +33,25 @@ int main() {
                 }
                 break;
             case 2:
-                while (true){
+                while (true) {
                     opcao_usuario = menu_cadastro_usuario();
 
                     if(opcao_usuario == 1){
-                        cadastrarUsuario();//adicionar usuario
+                        cadastrarUsuario(); // adicionar usuario
                     }else if (opcao_usuario == 2) {
                         break; // Volta ao menu principal
                     }else {
                         cout << "Opcao invalida!" <<endl ;
                     }
-
                 }
-                
                 break;
-            // case 4:
-            //     {
-            //     // Pesquisa de livros por autor
-            //     std::string autorProcurado;
-            //     std::cout << "Digite o nome do autor para buscar: ";
-            //     std::cin.ignore();  // Limpa qualquer caractere restante do buffer
-            //     std::getline(std::cin, autorProcurado);  // Lê o nome completo do autor
-
-            //     pesquisarLivrosPorAutor(autorProcurado);
-            //     break;
-            //     }
-
+            case 4:
+                // Pesquisa de livros por autor
+                pesquisarLivrosPorAutor();
+                break;
             case 5:
-
                 cout << "Relatorio";
-
                 break;    
-
             case 6: // Finalizar o aplicativo
                 cout << "Encerrando o aplicativo..." << endl;
                 return 0;
