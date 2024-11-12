@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <vector>
 #include "Usuarios.cpp"
 #include "Livro.cpp"
 #include <algorithm>
@@ -135,7 +136,7 @@ void pesquisarLivrosPorAutor() {
     std::string autorProcurado;
 
     std::cout << "Digite o nome do autor para buscar: ";
-    std::cin.ignore(); // Limpa qualquer caractere restante do buffer
+    std::cin.ignore();  // Limpa qualquer caractere restante do buffer
     std::getline(std::cin, autorProcurado);
 
     std::cout << "Pesquisando livros do autor: " << autorProcurado << std::endl;
@@ -148,7 +149,7 @@ void pesquisarLivrosPorAutor() {
             std::cout << "---------------------" << std::endl;
             std::cin.get();
         }
-    }
+    } 
 
     if (!encontrado) {
         std::cout << "Nenhum livro encontrado para o autor: " << autorProcurado << std::endl;
@@ -263,4 +264,56 @@ void emprestimoDeLivros() {
         cout << "Livro nao encontrado no sistema";
         return;
     }
+}
+
+void devolucaoDeLivros(){
+
+    string nome, contato;
+    int isbn, quantidadeDevolucao;
+    bool encontrado = false;
+
+    cout << "Digite seu nome: ";
+    std::cin.ignore(); // Limpa qualquer caractere restante do buffer
+    std::getline(std::cin, nome);
+    cout << "Digite seu contato: ";
+    std::cin.ignore(); // Limpa qualquer caractere restante do buffer
+    std::getline(std::cin, contato);
+
+    // procura o nome e contato do usuário digitado na lista de usuarios cadastrados
+
+    for (Usuarios &usuario : usuarios) {
+        if (usuario.getNome() == nome && usuario.getContato() == contato) {
+            cout << "Usuario cadastrado, favor favor prosseguir com a devolucao!\n";
+            encontrado = true;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "Usuario nao encontrado no sistema, favor realizar o cadastro para devolucao!\n";
+        return;
+    }
+
+    cout << "Digite o ISBN do livro que deseja devolver: ";
+    cin >> isbn;
+
+    // procura o ISBN digitado na lista livros
+    for (Livro &livro : livros) {
+        if (livro.getISBN() == isbn) {
+            cout << "Digite a quantidade para devolver: ";
+            cin >> quantidadeDevolucao;
+            if (quantidadeDevolucao > livro.getQuantidade()) {
+                cout << "Quantidade invalida!";
+                return;
+            }
+            encontrado = true;
+            livro.getQuantidade() += quantidadeDevolucao;
+            cout << "Livro devolvido com sucesso";
+        }
+    }
+    
+    if (!encontrado) {
+        cout << "Livro nao encontrado no sistema";
+        return;
+    }
+
 }
