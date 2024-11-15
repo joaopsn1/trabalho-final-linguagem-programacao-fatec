@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 class Usuarios {
 private:
     string nome;
@@ -12,11 +10,16 @@ private:
     string contato;
 
 public:
+    Usuarios() {
+
+    }
+
+public:
     Usuarios(const std::string &nome, const std::string &endereco, std::string &contato) : nome(nome), endereco(endereco), contato(contato) {}
 
     void exibirInformacoes() const {
         cout << "Nome: " << nome << endl;
-        cout << "Endereço: " << endereco << endl;
+        cout << "Endereco: " << endereco << endl;
         cout << "Contato: " << contato << endl;
     }
 
@@ -32,5 +35,3 @@ public:
         return contato;
     }
 };
-
-//cria lista de usuarios

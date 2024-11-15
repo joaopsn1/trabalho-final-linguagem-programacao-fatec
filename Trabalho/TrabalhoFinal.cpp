@@ -42,6 +42,8 @@ int main() {
                     if(opcaoUsuario == 1) {
                         cadastrarUsuario(); // adicionar usuario
                     } else if (opcaoUsuario == 2) {
+                        exibirUsuariosCadastrados();
+                    } else if (opcaoUsuario == 3) {
                         break; // Volta ao menu principal
                     } else {
                         cout << "Opcao invalida!" << endl;
@@ -57,6 +59,8 @@ int main() {
                     } else if (opcaoEmprestimoDevolucao == 2) {
                         devolucaoDeLivros(); // devolver livros
                     } else if (opcaoEmprestimoDevolucao == 3) {
+                        exibirEmprestimos();
+                    } else if (opcaoEmprestimoDevolucao == 4) {
                         break; // volta ao menu principal
                     } else {
                         cout << "Opcao invalida!" << endl;

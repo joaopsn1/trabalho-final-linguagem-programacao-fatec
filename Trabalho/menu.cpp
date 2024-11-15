@@ -50,7 +50,8 @@ int menuCadastroLivro() {
 int menuCadastroUsuario(){
    cout << "\n.:: MENU DA BIBLIOTECA ::.\n";
    cout << "[ 1 ] Adicionar Usuario \n";
-   cout << "[ 2 ] Voltar ao menu principal \n";
+   cout << "[ 2 ] Exibir Usuarios cadastrados \n";
+   cout << "[ 3 ] Voltar ao menu principal \n";
    cout << "\nOpcao: ";
    cin >> opcaoUsuario;
    return opcaoUsuario;
@@ -61,7 +62,8 @@ int menuEmprestimoDevolucao(){
    cout << "\n.:: EMPRESTIMO/DEVOLUCAO ::.\n";
    cout << "[ 1 ] Emprestimo \n";
    cout << "[ 2 ] Devolucao \n";
-   cout << "[ 3 ] Voltar ao menu principal \n";
+   cout << "[ 3 ] Exibir Emprestimos \n";
+   cout << "[ 4 ] Voltar ao menu principal \n";
    cout << "\nOpcao: ";
    cin >> opcaoUsuario;
    return opcaoUsuario;
