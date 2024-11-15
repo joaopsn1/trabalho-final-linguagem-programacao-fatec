@@ -33,6 +33,7 @@ int main() {
                         cout << "Opcao invalida!" << endl;
                     }
                 }
+                
                 break;
             case 2:
                 while (true) {
@@ -54,7 +55,7 @@ int main() {
                     if(opcaoEmprestimoDevolucao == 1) {
                         emprestimoDeLivros(); // emprestar livros
                     } else if (opcaoEmprestimoDevolucao == 2) {
-                        // devolucaoLivros();
+                        devolucaoDeLivros(); // devolver livros
                     } else if (opcaoEmprestimoDevolucao == 3) {
                         break; // volta ao menu principal
                     } else {
@@ -79,6 +80,7 @@ int main() {
                     }
                 }
                 break;
+
             case 5:
                 cout << "Relatorio";
                 break;    
