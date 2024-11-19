@@ -75,8 +75,9 @@ int menuEmprestimoDevolucao(){
 int menuRelatorio(){
    cout << "\n.:: MENU DE RELATORIO ::.\n";
    cout << "[ 1 ] Relatorio de Livros \n";
-   cout << "[ 2 ] Relatorio por Usuario \n";
-   cout << "[ 3 ] Voltar ao menu principal \n";
+   cout << "[ 2 ] Livro com mais Emprestimos \n";
+   cout << "[ 3 ] Usuario com mais Emprestimos \n";
+   cout << "[ 4 ] Voltar ao menu principal \n";
    cout << "\nOpcao: ";
    cin >> opcaoRelatorio;
    return opcaoRelatorio;
@@ -84,9 +85,9 @@ int menuRelatorio(){
 
 //menu de relatorio  biblioteca exibir usuario e livros
 int menuRelatorioBiblioteca(){
-   cout << "\n.:: MENU DE RELATORIO DA BIBLIOTECA ::.\n";
-   cout << "[ 1 ] Relatorio de Livros \n";
-   cout << "[ 2 ] Relatorio por Usuario \n";
+   cout << "\n.:: MENU DE RELATORIO GERAL DA BIBLIOTECA ::.\n";
+   cout << "[ 1 ] Exibir todos os Livros \n";
+   cout << "[ 2 ] Exibir Usuario cadastrados \n";
    cout << "[ 3 ] Voltar ao menu principal \n";
    cout << "\nOpcao: ";
    cin >> opcaoRelatorioBiblioteca;
