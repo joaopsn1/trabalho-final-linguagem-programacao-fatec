@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     int opcao, opcaoLivro, opcaoUsuario, opcaoBusca, opcaoEmprestimoDevolucao, opcaoRelatorio, opcaoRelatorioBiblioteca;
-    std::string autorProcurado;
+    std::string autorProcurado, nomeBuscado;
 
     while (true) { // loop infinito para ficar executando
         opcao = menu();
@@ -104,8 +104,10 @@ int main() {
                                 }
                             }    
                         } else if (opcaoRelatorio == 2) {
-                            cout << "Relatorio por usuario" <<endl ; // exibi por usuario
-                        } else if (opcaoRelatorio == 3) {
+                            livroMaisEmprestado(); //saber qual foi o livro mais emprestado
+                        } else if (opcaoRelatorio == 3){
+                            usuarioComMaisEmprestimos(); // saber qual usuario empretou mais
+                        } if (opcaoRelatorio == 4) {
                             break; // volta ao menu principal
                         } else {
                             cout << "Opcao invalida!" <<endl ;
