@@ -4,6 +4,8 @@
 int opcao;
 int opcaoLivro;
 int opcaoUsuario;
+int opcaoRelatorio;
+int opcaoRelatorioBiblioteca;
 
 using namespace std;
 
@@ -67,4 +69,26 @@ int menuEmprestimoDevolucao(){
    cout << "\nOpcao: ";
    cin >> opcaoUsuario;
    return opcaoUsuario;
+}
+
+//menu de relatorio
+int menuRelatorio(){
+   cout << "\n.:: MENU DE RELATORIO ::.\n";
+   cout << "[ 1 ] Relatorio de Livros \n";
+   cout << "[ 2 ] Relatorio por Usuario \n";
+   cout << "[ 3 ] Voltar ao menu principal \n";
+   cout << "\nOpcao: ";
+   cin >> opcaoRelatorio;
+   return opcaoRelatorio;
+}
+
+//menu de relatorio  biblioteca exibir usuario e livros
+int menuRelatorioBiblioteca(){
+   cout << "\n.:: MENU DE RELATORIO DA BIBLIOTECA ::.\n";
+   cout << "[ 1 ] Relatorio de Livros \n";
+   cout << "[ 2 ] Relatorio por Usuario \n";
+   cout << "[ 3 ] Voltar ao menu principal \n";
+   cout << "\nOpcao: ";
+   cin >> opcaoRelatorioBiblioteca;
+   return opcaoRelatorioBiblioteca;
 }
