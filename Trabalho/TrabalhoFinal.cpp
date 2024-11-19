@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-    int opcao, opcaoLivro, opcaoUsuario, opcaoBusca, opcaoEmprestimoDevolucao;
+    int opcao, opcaoLivro, opcaoUsuario, opcaoBusca, opcaoEmprestimoDevolucao, opcaoRelatorio, opcaoRelatorioBiblioteca;
     std::string autorProcurado;
 
     while (true) { // loop infinito para ficar executando
@@ -86,8 +86,32 @@ int main() {
                 break;
 
             case 5:
-                cout << "Relatorio";
-                break;    
+            while(true){
+                    opcaoRelatorio = menuRelatorio();
+                    
+                    if (opcaoRelatorio == 1) {
+                            cout << "Relatorio da Biblioteca\n" <<endl; // exibi todos os livros e usuarios da biblioteca
+                            while (true){
+                                opcaoRelatorioBiblioteca = menuRelatorioBiblioteca();
+                                if (opcaoRelatorioBiblioteca == 1) {
+                                    exibirLivrosCadastrados();// exibi livros cadastrados      
+                                } else if (opcaoRelatorioBiblioteca == 2) {
+                                    exibirUsuariosCadastrados(); // exibi os usuarios cadastradps
+                                } else if (opcaoRelatorioBiblioteca == 3) {
+                                    break; // volta ao menu principal
+                                } else {
+                                    cout << "Opcao invalida!" <<endl ;
+                                }
+                            }    
+                        } else if (opcaoRelatorio == 2) {
+                            cout << "Relatorio por usuario" <<endl ; // exibi por usuario
+                        } else if (opcaoRelatorio == 3) {
+                            break; // volta ao menu principal
+                        } else {
+                            cout << "Opcao invalida!" <<endl ;
+                        }
+                    }
+                    break;    
             case 6: // Finalizar o aplicativo
                 cout << "Encerrando o aplicativo..." << endl;
                 return 0;
