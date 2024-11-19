@@ -39,7 +39,6 @@ void exibirUsuariosCadastrados() {
     cout << "\n.:: USUARIOS CADASTRADOS ::.\n";
     if (usuarios.empty()) {
         cout << "Nenhum usuario cadastrado" << endl;
-        cout << "------------------------\n";
         return;
     }
 
@@ -277,7 +276,7 @@ void emprestimoDeLivros() {
         if (livro.getISBN() == isbnEmprestimo) {
             cout << "Digite a quantidade para emprestimo: ";
             cin >> quantidadeEmprestimo;
-            if (quantidadeEmprestimo > 1) {
+            if (quantidadeEmprestimo > 1 || isbnEmprestimo == livro.getISBN()) {
                 cout << "Nao e possivel emprestar mais de 1 livro do mesmo titulo, favor emprestar livros diferentes!\n";
                 cout << "------------------------\n";
                 return;
@@ -332,6 +331,7 @@ void devolucaoDeLivros(){
     int anoDevolucao = horarioLocal->tm_year + 1900;
 
     cout << "Emprestimos cadastrados\n";
+    cout << "------------------------\n";
     exibirEmprestimos();
 
     cout << "Digite seu nome: ";
@@ -421,7 +421,7 @@ void livroMaisEmprestado() {
 
 void usuarioComMaisEmprestimos() {
     if (livrosPorUsuario.empty()) {
-        cout << "Nenhum empréstimo foi realizado ainda!\n";
+        cout << "Nenhum emprestimo foi realizado ainda!\n";
         cout << "------------------------\n";
         return;
     }
@@ -456,7 +456,7 @@ void usuarioComMaisEmprestimos() {
         }
     }
 
-    cout << "Erro: Usuario com mais empréstimos não encontrado no sistema!\n";
+    cout << "Erro: Usuario com mais emprestimos nao encontrado no sistema!\n";
     cout << "------------------------\n";
 }
 
