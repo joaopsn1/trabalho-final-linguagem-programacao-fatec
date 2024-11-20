@@ -21,6 +21,7 @@ Livro livroSelecionado;
 // Cadastrar Usuários na biblioteca
 void cadastrarUsuario() {
     string nome, endereco, contato;
+    Usuarios usuario;
 
     cout << "\nNome: ";
     std::cin.ignore();
@@ -29,6 +30,18 @@ void cadastrarUsuario() {
     std::getline(std::cin, endereco);
     cout << "Contato: ";
     std::getline(std::cin, contato);
+
+    for (const Usuarios &usuario : usuarios) {
+        if (nome == usuario.getNome() && contato == usuario.getContato()) {
+            cout << "Usuario ja cadastrado na biblioteca!" << endl;
+            return;
+        }
+
+        if (contato == usuario.getContato()) {
+            cout << "Ja existe usuario cadastrado com esse contato!" << endl;
+            return;
+        }
+    }    
 
     usuarios.emplace_back(nome, endereco, contato); // Adicionando novo objeto Usuarios a Lista
     cout << "Usuario " << nome << " cadastrado com sucesso!" << endl;
@@ -64,6 +77,18 @@ void cadastrarLivro() {
     std::getline(std::cin, genero);
     cout << "Quantidade: ";
     cin >> quantidade;
+
+    for (const Livro &livro : livros) {
+        if (titulo == livro.getTitulo() && autor == livro.getAutor()) {
+            cout << "Livro ja cadastrado na biblioteca!" << endl;
+            return;
+        }
+
+        if (isbn == livro.getISBN()) {
+            cout << "ISBN ja cadastrado na biblioteca!" << endl;
+            return;
+        }
+    }
 
     livros.emplace_back(titulo, autor, isbn, genero, quantidade); // Adicionando novo objeto Livros a Lista
     cout << "Livro " << titulo << " cadastrado com sucesso!" << endl;
@@ -270,19 +295,35 @@ void emprestimoDeLivros() {
     cout << "Digite o ISBN do livro que deseja emprestar: ";
     cin >> isbnEmprestimo;
 
+    // Verifica se o livro já foi emprestado pelo mesmo usuário
+    for (const auto &par : livrosPorUsuario) {
+        if (par.first.getNome() == usuarioSelecionado.getNome() && par.second.getISBN() == isbnEmprestimo) {
+            cout << "Voce ja emprestou este livro. Nao e permitido emprestar o mesmo livro novamente!\n";
+            cout << "------------------------\n";
+            return;
+        }
+    }
+
     // procura o ISBN digitado na lista livros
     Livro livroSelecionado;
     for (Livro &livro : livros) {
         if (livro.getISBN() == isbnEmprestimo) {
             cout << "Digite a quantidade para emprestimo: ";
             cin >> quantidadeEmprestimo;
-            if (quantidadeEmprestimo > 1 || isbnEmprestimo == livro.getISBN()) {
+            
+            if (quantidadeEmprestimo > 1) {
                 cout << "Nao e possivel emprestar mais de 1 livro do mesmo titulo, favor emprestar livros diferentes!\n";
                 cout << "------------------------\n";
                 return;
             }
-            encontradoLivro = true;
+
+            if (quantidadeEmprestimo > livro.getQuantidade()) {
+                cout << "Quantidade insuficiente em estoque!" << endl;
+                return;
+            }
+            
             livro.getQuantidade() -= quantidadeEmprestimo;
+            encontradoLivro = true;
             livroSelecionado = livro; 
         }
     }
@@ -365,7 +406,7 @@ void devolucaoDeLivros(){
             encontradoEmprestimo = true;
             // Remover o empréstimo da lista se a quantidade emprestada for 0
             livrosPorUsuario.erase(it);
-            cout << "Livro devolvido com sucesso na data " << diaDevolucao << "/" << mesDevolucao << "/" << anoDevolucao << endl;
+            cout << "\nLivro devolvido com sucesso na data " << diaDevolucao << "/" << mesDevolucao << "/" << anoDevolucao << endl;
             cout << "------------------------\n";
             return;
         }
