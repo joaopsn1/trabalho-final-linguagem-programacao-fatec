@@ -33,7 +33,6 @@ int main() {
                         cout << "Opcao invalida!" << endl;
                     }
                 }
-                
                 break;
             case 2:
                 while (true) {
@@ -84,9 +83,8 @@ int main() {
                     }
                 }
                 break;
-
             case 5:
-            while(true){
+            while(true) {
                     opcaoRelatorio = menuRelatorio();
                     
                     if (opcaoRelatorio == 1) {
@@ -94,23 +92,23 @@ int main() {
                             while (true){
                                 opcaoRelatorioBiblioteca = menuRelatorioBiblioteca();
                                 if (opcaoRelatorioBiblioteca == 1) {
-                                    exibirLivrosCadastrados();// exibi livros cadastrados      
+                                    exibirLivrosCadastrados(); // exibi livros cadastrados      
                                 } else if (opcaoRelatorioBiblioteca == 2) {
-                                    exibirUsuariosCadastrados(); // exibi os usuarios cadastradps
+                                    exibirUsuariosCadastrados(); // exibi os usuarios cadastrados
                                 } else if (opcaoRelatorioBiblioteca == 3) {
                                     break; // volta ao menu principal
                                 } else {
-                                    cout << "Opcao invalida!" <<endl ;
+                                    cout << "Opcao invalida!" <<endl;
                                 }
                             }    
                         } else if (opcaoRelatorio == 2) {
-                            livroMaisEmprestado(); //saber qual foi o livro mais emprestado
+                            livroMaisEmprestado(); // saber qual foi o livro mais emprestado
                         } else if (opcaoRelatorio == 3){
                             usuarioComMaisEmprestimos(); // saber qual usuario empretou mais
-                        } if (opcaoRelatorio == 4) {
+                        } else if (opcaoRelatorio == 4) {
                             break; // volta ao menu principal
                         } else {
-                            cout << "Opcao invalida!" <<endl ;
+                            cout << "Opcao invalida!" <<endl;
                         }
                     }
                     break;    
@@ -122,6 +120,5 @@ int main() {
                 break;
         }
     }
-
     return 0;
 }
