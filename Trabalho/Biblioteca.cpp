@@ -426,28 +426,28 @@ void livroMaisEmprestado() {
         return;
     }
 
-    // Mapeia ISBNs para a quantidade de empréstimos
-    map<int, int> contagemEmprestimos;
+    // Mapeia o título do livro para a quantidade de empréstimos
+    map<string, int> contagemEmprestimos;
 
-    // Conta o número de vezes que cada ISBN foi emprestado
+    // Conta o número de vezes que cada livro foi emprestado
     for (const auto &emprestimo : livrosPorUsuario) {
-        int isbn = emprestimo.second.getISBN();
-        contagemEmprestimos[isbn]++;
+        string titulo = emprestimo.second.getTitulo();
+        contagemEmprestimos[titulo]++;
     }
 
-    // Encontra o ISBN com o maior número de empréstimos
-    int isbnMaisEmprestado = 0;
+    // Encontra o título do livro com o maior número de empréstimos
+    string tituloMaisEmprestado;
     int maiorQuantidade = 0;
     for (const auto &item : contagemEmprestimos) {
         if (item.second > maiorQuantidade) {
             maiorQuantidade = item.second;
-            isbnMaisEmprestado = item.first;
+            tituloMaisEmprestado = item.first;
         }
     }
 
-    // Busca o livro correspondente pelo ISBN
+    // Busca o livro correspondente pelo título
     for (const Livro &livro : livros) {
-        if (livro.getISBN() == isbnMaisEmprestado) {
+        if (livro.getTitulo() == tituloMaisEmprestado) {
             cout << "\n.:: LIVRO MAIS EMPRESTADO ::.\n";
             livro.exibirInformacoes();
             cout << "Quantidade de emprestimos: " << maiorQuantidade << "\n";
@@ -486,7 +486,7 @@ void usuarioComMaisEmprestimos() {
         }
     }
 
-    // Busca o usuário correspondente e exibe as informações
+    // Busca o usuário correspondente pelo nome
     for (const Usuarios &usuario : usuarios) {
         if (usuario.getNome() == usuarioMaisEmprestimos) {
             cout << "\n.:: USUARIO COM MAIS EMPRESTIMOS ::.\n";
